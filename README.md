@@ -55,18 +55,33 @@ Stock Ticker Scroller for ESP-WROOM-32
 
 ```cpp
 const char* FINNHUB = "YOUR_TOKEN_HERE";
-
+``` 
 Free tier allows 60 requests /min — perfect for one call every 60 s.
 
 ---
 
 ## 3 · Configure Wi-Fi & symbols
+```cpp
 const char* WIFI_SSID = "YOUR_SSID";
 const char* WIFI_PASS = "YOUR_PASS";
 
 const char* symbols[] = { "QQQ", "SPY", "VIX", "AMZN",
                           "SOFI", "PYPL", "PLTR", "NVDA" };
+``` 
+Wi-Fi Status Codes:
+====================
+Code  | Constant              | Meaning
+------+-----------------------+-----------------------------------------
+  0   | WL_IDLE_STATUS        | Idle, Wi-Fi not started
+  1   | WL_NO_SSID_AVAIL      | SSID not found (network unavailable)
+  2   | WL_SCAN_COMPLETED     | Wi-Fi scan finished
+  3   | WL_CONNECTED          | Connected to Wi-Fi
+  4   | WL_CONNECT_FAILED     | Failed to connect (e.g., wrong password)
+  5   | WL_CONNECTION_LOST    | Lost connection to the AP
+  6   | WL_DISCONNECTED       | Disconnected manually or by AP
 
+W          → Connected
+E<code>    → Error, e.g., E1 = No SSID available
 ---
 
 ## 4 · Compile & upload
@@ -84,9 +99,9 @@ Reboot the board
 
 Status bar legend (top yellow line):
 IP:192.168.0.24 W/D
-         │        │
-         │        └─ Data OK / API error
-         └────────── Wi-Fi OK / E〈code〉
+             │    │
+             │    └── Data OK / API error
+             └──────────── Wi‑Fi OK / E〈code〉
 	•	MARKET CLOSED appears on the cyan line below the ticker whenever Finnhub reports the US market is shut.
 
 ## Troubleshooting
