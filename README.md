@@ -58,19 +58,23 @@ const char* FINNHUB = "YOUR_TOKEN_HERE";
 
 Free tier allows 60 requests /min — perfect for one call every 60 s.
 
-3 · Configure Wi-Fi & symbols
+---
+
+## 3 · Configure Wi-Fi & symbols
 const char* WIFI_SSID = "YOUR_SSID";
 const char* WIFI_PASS = "YOUR_PASS";
 
 const char* symbols[] = { "QQQ", "SPY", "VIX", "AMZN",
                           "SOFI", "PYPL", "PLTR", "NVDA" };
 
-4 · Compile & upload
+---
+
+## 4 · Compile & upload
 	•	Click ✔ Verify → → Upload
 	•	If the IDE hangs on “Connecting…”, hold BOOT, tap EN, release BOOT
 	•	The OLED should light up within five seconds
 
-Runtime controls
+## Runtime controls
 Button
 Function
 BOOT / GPIO 0
@@ -85,7 +89,7 @@ IP:192.168.0.24 W/D
          └────────── Wi-Fi OK / E〈code〉
 	•	MARKET CLOSED appears on the cyan line below the ticker whenever Finnhub reports the US market is shut.
 
-Troubleshooting
+## Troubleshooting
 Symptom
 Fix
 OLED stays black
@@ -97,13 +101,16 @@ Ensure the panel is SSD1306; some clones are SH1106 ← need different library
 No Wi-Fi, code shows E1
 Wrong SSID case or 5 GHz-only network; enable 2.4 GHz channel 1-11
 
+---
 
-Customisation tips
+## Customisation tips
 	•	Change FETCH_MS to pull quotes faster/slower (respect Finnhub limits).
 	•	Set TICKER_SIZE to 1 for small 5 × 8 font and two ticker rows.
 	•	Add more symbols by enlarging symbols[] and NSYM, but watch the 256-byte JSON buffer.
 
-License
+---
+
+## License
 
 MIT — do whatever you like; attribution appreciated.
 Quotes via Finnhub.io are subject to their Terms of Service.
